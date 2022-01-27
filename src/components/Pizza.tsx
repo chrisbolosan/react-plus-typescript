@@ -21,3 +21,12 @@ const Pizza: React.FC<Props> = ({ pizza }: Props) => {
 };
 
 export default Pizza;
+// export default function Pizza(props: Pizza) {
+//   return (
+//     <li>
+//       <h2>{props.name}</h2>
+//       <p>{props.description}</p>
+//       <p>{props.price}</p>
+//     </li>
+//   );
+// }
