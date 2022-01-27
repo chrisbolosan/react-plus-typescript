@@ -1,5 +1,13 @@
 import React from "react";
+import pizzas from "../data/pizzas.json";
+import Pizza from "./Pizza";
 
 export default function App() {
-  return <div>(window as any).hello();</div>;
+  return (
+    <ul>
+      {pizzas.map((pizza) => (
+        <Pizza key={pizza.id} pizza={pizza} />
+      ))}
+    </ul>
+  );
 }
