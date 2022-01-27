@@ -10,7 +10,7 @@ interface Props {
   pizza: Pizza;
 }
 
-const Pizza: React.FC<Props> = ({ pizza }) => {
+const Pizza: React.FC<Props> = ({ pizza }: Props) => {
   return (
     <li>
       <h2>{pizza.name}</h2>
