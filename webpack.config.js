@@ -23,6 +23,16 @@ module.exports = {
       {
         test: /\.svg$/,
         loader: "@svgr/webpack",
+        options: {
+          svgoConfig: {
+            plugins: [
+              {
+                name: "removeViewBox",
+                active: false,
+              },
+            ],
+          },
+        },
       },
     ],
   },
