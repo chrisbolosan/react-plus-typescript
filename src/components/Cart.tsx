@@ -15,6 +15,10 @@ export default class Cart extends Component<Props, State> {
     };
   }
   cartHandle = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    // console.log(e.target);
+    // if((e.target. as HTMLElement).nodeName === "SPAN") {
+    //     e.target as HTMLSpanElement).;
+    // }
     this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
   };
 
