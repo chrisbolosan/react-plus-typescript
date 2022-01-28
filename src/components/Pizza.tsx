@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import PizzaCSS from "./Pizza.module.css";
-import AppStateProvider from "../components/AppState";
+import { AppSetStateContext, useSetState } from "../components/AppState";
 
 interface Pizza {
   id: number;
@@ -13,24 +13,25 @@ interface Props {
 }
 
 const Pizza: React.FC<Props> = ({ pizza }: Props) => {
+  const setState = useSetState();
+  const handleAddToCart = () => {
+    if (setState) {
+      setState(state => {
+        return {}
+      })
+    }
+   
+  }
   return (
-    <AppStateProvider>
+    <AppSetStateContext.Consumer>
       <li className={PizzaCSS.container}>
         <h2>{pizza.name}</h2>
         <p>{pizza.description}</p>
         <p>{pizza.price}</p>
+        <button type- "button" onClick={} >Add to Cart</button>
       </li>
-    </AppStateProvider>
+    </AppSetStateContext.Consumer>
   );
 };
 
 export default Pizza;
-// export default function Pizza(props: Pizza) {
-//   return (
-//     <li>
-//       <h2>{props.name}</h2>
-//       <p>{props.description}</p>
-//       <p>{props.price}</p>
-//     </li>
-//   );
-// }
