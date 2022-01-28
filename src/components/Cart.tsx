@@ -27,30 +27,30 @@ export default class Cart extends Component<Props, State> {
     return (
       <AppStateContext.Consumer>
         {(state) => {
-          <div className={CartCSS.cartContainer}>
-            <button
-              className={CartCSS.button}
-              type="button"
-              onClick={this.cartHandle}
-            >
-              <FiShoppingCart />
-              <span> {state.cart.items.length} pizza(s)</span>
-            </button>
-            <div
-              className={CartCSS.cartDropDown}
-              style={{
-                display: this.state.isOpen ? "block" : "none",
-              }}
-            >
-              <ul>
-                <li>Napoletana</li>
-                <li>Marinara</li>
-                {state.cart.items.map((item) => {
-                  return <li key={item.id}>{item.name}</li>;
-                })}
-              </ul>
+          return (
+            <div className={CartCSS.cartContainer}>
+              <button
+                className={CartCSS.button}
+                type="button"
+                onClick={this.cartHandle}
+              >
+                <FiShoppingCart />
+                <span> {state.cart.items.length} pizza(s)</span>
+              </button>
+              <div
+                className={CartCSS.cartDropDown}
+                style={{
+                  display: this.state.isOpen ? "block" : "none",
+                }}
+              >
+                <ul>
+                  {state.cart.items.map((item) => {
+                    return <li key={item.id}>{item.name}</li>;
+                  })}
+                </ul>
+              </div>
             </div>
-          </div>;
+          );
         }}
       </AppStateContext.Consumer>
     );
