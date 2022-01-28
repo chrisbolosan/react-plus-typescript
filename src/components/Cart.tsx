@@ -16,10 +16,6 @@ export default class Cart extends Component<Props, State> {
     };
   }
   cartHandle = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    // console.log(e.target);
-    // if((e.target. as HTMLElement).nodeName === "SPAN") {
-    //     e.target as HTMLSpanElement).;
-    // }
     this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
   };
 
@@ -45,7 +41,11 @@ export default class Cart extends Component<Props, State> {
               >
                 <ul>
                   {state.cart.items.map((item) => {
-                    return <li key={item.id}>{item.name}</li>;
+                    return (
+                      <li key={item.id}>
+                        {item.name} &times; {item.quantity}
+                      </li>
+                    );
                   })}
                 </ul>
               </div>
