@@ -23,6 +23,9 @@ export default class Cart extends Component<Props, State> {
     return (
       <AppStateContext.Consumer>
         {(state) => {
+          const cartCount = state.cart.items.reduce((acc, item) => {
+            return acc + item.quantity;
+          }, 0);
           return (
             <div className={CartCSS.cartContainer}>
               <button
@@ -31,7 +34,7 @@ export default class Cart extends Component<Props, State> {
                 onClick={this.cartHandle}
               >
                 <FiShoppingCart />
-                <span> {state.cart.items.length} pizza(s)</span>
+                <span> {cartCount} pizza(s)</span>
               </button>
               <div
                 className={CartCSS.cartDropDown}
