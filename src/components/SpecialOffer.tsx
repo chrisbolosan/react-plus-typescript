@@ -1,30 +1,38 @@
 import React from "react";
 import { Pizza } from "../types";
 import SpecialOfferCSS from "./SpecialOffer.module.css";
-import { withAddToCart, AddToCartProps } from "./AddToCart";
+import { WithAddToCartProps } from "./AddToCart";
 
-interface Props extends AddToCartProps {
+interface Props {
   pizza: Pizza;
 }
 
-const SpecialOffer: React.FC<Props> = ({ pizza, addToCart }) => {
-  const handleAddToCart = () => {
-    addToCart({
-      id: pizza.id,
-      name: pizza.name,
-      price: pizza.price,
-    });
-  };
+const SpecialOffer: React.FC<Props> = ({ pizza }) => {
   return (
     <div className={SpecialOfferCSS.container}>
       <h2>{pizza.name}</h2>
       <p>{pizza.description}</p>
       <p>{pizza.price}</p>
-      <button type="button" onClick={handleAddToCart}>
-        Add to Cart
-      </button>
+      <WithAddToCartProps>
+        {({ addToCart }) => {
+          return (
+            <button
+              type="button"
+              onClick={() =>
+                addToCart({
+                  id: pizza.id,
+                  name: pizza.name,
+                  price: pizza.price,
+                })
+              }
+            >
+              Add to Cart
+            </button>
+          );
+        }}
+      </WithAddToCartProps>
     </div>
   );
 };
 
-export default withAddToCart(SpecialOffer);
+export default SpecialOffer;
