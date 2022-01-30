@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import pizzas from "../data/pizzas.json";
 import Pizza from "./Pizza";
 import AppCSS from "./App.module.css";
@@ -9,6 +9,7 @@ import SpecialOffer from "./SpecialOffer";
 
 export default function App() {
   const specialOfferPizza = pizzas.find((pizza) => pizza.specialOffer);
+
   return (
     <AppStateProvider>
       <div className={AppCSS.container}>
