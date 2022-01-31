@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import pizzas from "../data/pizzas.json";
 import Pizza from "./Pizza";
 import AppCSS from "./App.module.css";
@@ -15,7 +15,7 @@ export default function App() {
       <div className={AppCSS.container}>
         <div className={AppCSS.header}>
           <PizzaSVG width={100} height={100} />
-          <div className={AppCSS.siteTitle}>Ninja Turtle Pizzaria</div>
+          <div className="text-3xl">Ninja Turtle Pizzaria</div>
           <Cart />
         </div>
         {specialOfferPizza && <SpecialOffer pizza={specialOfferPizza} />}
