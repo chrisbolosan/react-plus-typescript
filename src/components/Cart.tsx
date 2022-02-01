@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import CartCSS from "./Cart.module.css";
+// import CartCSS from "./Cart.module.css";
 import { FiShoppingCart } from "react-icons/fi";
 import { AppStateContext } from "./AppState";
 
@@ -45,25 +45,31 @@ export default class Cart extends Component<Props, State> {
             return acc + item.quantity;
           }, 0);
           return (
-            <div className={CartCSS.cartContainer} ref={this.#containerRef}>
+            <div
+              className="inline-block postion-relative"
+              ref={this.#containerRef}
+            >
               <button
-                className={CartCSS.button}
+                className="bg-none border-none p-0 inline-flex items-center text-[16px] cursor-pointer"
                 type="button"
                 onClick={this.cartHandle}
               >
-                <FiShoppingCart />
+                <FiShoppingCart className="mt-0 mr-[5px] mb-0 ml-0 " />
                 <span> {cartCount} pizza(s)</span>
               </button>
               <div
-                className={CartCSS.cartDropDown}
+                className="bg-[#ffffff] postion-absolute shadow-3xl -translate-x-50 p-1 left-[5px] w-[200px] text-left"
                 style={{
                   display: this.state.isOpen ? "block" : "none",
                 }}
               >
-                <ul>
+                <ul className="list-none m-0 p-0">
                   {state.cart.items.map((item) => {
                     return (
-                      <li key={item.id}>
+                      <li
+                        className="box-border h-18 w-18 border border-[#ccc] p-2"
+                        key={item.id}
+                      >
                         {item.name} &times; {item.quantity}
                       </li>
                     );
