@@ -1,6 +1,6 @@
 import React from "react";
 import { Pizza } from "../types";
-import SpecialOfferCSS from "./SpecialOffer.module.css";
+// import SpecialOfferCSS from "./SpecialOffer.module.css";
 import { WithAddToCartProps } from "./AddToCart";
 
 interface Props {
@@ -9,8 +9,8 @@ interface Props {
 
 const SpecialOffer: React.FC<Props> = ({ pizza }) => {
   return (
-    <div className={SpecialOfferCSS.container}>
-      <h2>{pizza.name}</h2>
+    <div className="mx-0 my-0 mb-10 border border-[#ff0000] p-5">
+      <h2 className="mx-0 my-0 mb-[10px]">{pizza.name}</h2>
       <p>{pizza.description}</p>
       <p>{pizza.price}</p>
       <WithAddToCartProps>
@@ -18,6 +18,7 @@ const SpecialOffer: React.FC<Props> = ({ pizza }) => {
           return (
             <button
               type="button"
+              className="bg-gray-300 rounded p-1"
               onClick={() =>
                 addToCart({
                   id: pizza.id,
