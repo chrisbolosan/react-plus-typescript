@@ -1,6 +1,6 @@
 # react-plus-typescript
 
-Simple Pizza time in Typescript language
+Simple Pizza time in Typescript language with Tailwind
 
 ## Contributors/Collaborators:
 
